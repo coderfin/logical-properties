@@ -1,25 +1,62 @@
 {
   "name": "logical-properties",
 	"displayName": "Logical Properties",
-	"description": "Find and replace CSS physical properties with logical properties.",
-	"version": "0.0.1",
+	"description": "Identify and replace CSS physical properties with logical properties.",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
 	"categories": [
+		"Debuggers",
+		"Formatters",
+		"Linters",
+		"Programming Languages",
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:logical-properties.helloWorld"
+		"onLanguage:coffeescript",
+		"onLanguage:css",
+		"onLanguage:html",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:less",
+		"onLanguage:markdown",
+		"onLanguage:php",
+		"onLanguage:plaintext",
+		"onLanguage:sass",
+		"onLanguage:scss",
+		"onLanguage:stylus",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onLanguage:vue",
+		"onLanguage:vue-html",
+		"onLanguage:xml",
+		"onLanguage:xsl"
 	],
-	"main": "./extension.js",
 	"contributes": {
-		"commands": [{
-            "command": "logical-properties.helloWorld",
-            "title": "Hello World"
-
-		}]
+		"commands": [
+		  {
+			"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
+			"title": "Replace all 💪 physical properties with 🧠 logical properties."
+		  }
+		],
+		"menus": {
+			"editor/context": [{
+				"when": "editorFocus",
+				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
+				"group": "logicalProperties@1"
+		  }]
+		},
+		"keybindings": [
+			{
+				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
+				"key": "ctrl+shift+l",
+				"mac": "cmd+shift+l",
+				"when": "editorFocus"
+			}
+		]
 	},
+	"main": "./extension.js",
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
