@@ -1,5 +1,5 @@
 {
-  	"name": "@coderfin/logical-properties",
+  	"name": "logical-properties",
 	"version": "0.1.0",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
