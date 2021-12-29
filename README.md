@@ -4,7 +4,7 @@ Identify and replace CSS 💪 physical properties with 🧠 logical properties.
 
 ![Logical Properties](images/action.gif)
 
-## Please leave a rating a review
+## Please leave a rating and review
 https://marketplace.visualstudio.com/items?itemName=coderfin.logical-properties&ssr=false#review-details
 
 ## Features
