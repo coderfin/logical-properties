@@ -223,7 +223,7 @@ async function getDiagnostics(document) {
 			let { search, replacement, isStatic } = TERMS[j];
 
 			const searchTermRegExp = new RegExp(search, 'gi');
-			if (!searchTermRegExp.exec(lines[i])) {
+			if (!searchTermRegExp.test(lines[i])) {
 				continue;
 			}
 

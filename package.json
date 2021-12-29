@@ -1,18 +1,53 @@
 {
-  "name": "logical-properties",
-	"displayName": "Logical Properties",
-	"description": "Identify and replace CSS physical properties with logical properties.",
+  	"name": "@coderfin/logical-properties",
 	"version": "0.1.0",
+	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
+	"keywords": [
+		"css",
+		"logical",
+		"properties",
+		"physical",
+		"replace",
+		"identify",
+		"debuggers",
+		"formatters",
+		"linters",
+		"programming languages",
+		"languages"
+	],
+	"homepage": "https://github.com/coderfin/logical-properties",
+	"license": "MIT",
+	"author": {
+		"name": "CoderFin",
+		"url": "https://github.com/coderfin",
+		"email": "coderfin@gmail.com"
+	},
+	"main": "./extension.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/coderfin/logical-properties.git"
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "yarn run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+        "@types/vscode": "^1.63.0",
+        "@types/glob": "^7.1.4",
+        "@types/mocha": "^9.0.0",
+        "@types/node": "14.x",
+        "eslint": "^8.1.0",
+        "glob": "^7.1.7",
+        "mocha": "^9.1.3",
+        "typescript": "^4.4.4",
+        "@vscode/test-electron": "^1.6.2"
+    },
 	"engines": {
 		"vscode": "^1.63.0"
 	},
-	"categories": [
-		"Debuggers",
-		"Formatters",
-		"Linters",
-		"Programming Languages",
-		"Other"
-	],
+	"private": true,
+	"displayName": "🧠 Logical Properties",
 	"activationEvents": [
 		"onLanguage:coffeescript",
 		"onLanguage:css",
@@ -33,20 +68,20 @@
 		"onLanguage:xml",
 		"onLanguage:xsl"
 	],
-	"contributes": {
+	"categories": [
+		"Debuggers",
+		"Formatters",
+		"Linters",
+		"Programming Languages",
+		"Other"
+	],
+	"contributes": {             
 		"commands": [
 		  {
 			"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
 			"title": "Replace all 💪 physical properties with 🧠 logical properties."
 		  }
 		],
-		"menus": {
-			"editor/context": [{
-				"when": "editorFocus",
-				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
-				"group": "logicalProperties@1"
-		  }]
-		},
 		"keybindings": [
 			{
 				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
@@ -54,24 +89,13 @@
 				"mac": "cmd+shift+l",
 				"when": "editorFocus"
 			}
-		]
-	},
-	"main": "./extension.js",
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-        "@types/vscode": "^1.63.0",
-        "@types/glob": "^7.1.4",
-        "@types/mocha": "^9.0.0",
-        "@types/node": "14.x",
-        "eslint": "^8.1.0",
-        "glob": "^7.1.7",
-        "mocha": "^9.1.3",
-        "typescript": "^4.4.4",
-        "@vscode/test-electron": "^1.6.2"
-    }
-
+		],
+		"menus": {
+			"editor/context": [{
+				"when": "editorFocus",
+				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
+				"group": "logicalProperties@1"
+		  }]
+		}
+	}
 }

@@ -47,13 +47,35 @@ class ReplacePhysicalWithLogical {
 				const currentDocument = vscode.window.activeTextEditor.document;
 				const diagnosticsResponses = vscode.languages.getDiagnostics();
 
-				for (let diagnosticsResponse of diagnosticsResponses) {
+				for (let diagnosticsResponse of diagnosticsResponses.reverse()) {
 					const [documentUri, diagnostics] =
 						/** @type {[vscode.Uri, Diagnostic[]]} */ (
 							/** @type {unknown} */ (diagnosticsResponse)
 						);
 
 					if (documentUri === currentDocument.uri && diagnostics?.length) {
+						diagnostics.reverse().sort((diagnosticA, diagnosticB) => {
+							if (diagnosticB.range.start.line > diagnosticA.range.start.line) {
+								return -1;
+							}
+							if (diagnosticB.range.start.line < diagnosticA.range.start.line) {
+								return 1;
+							}
+
+							if (
+								diagnosticB.range.start.character >
+								diagnosticA.range.start.character
+							) {
+								return 1;
+							}
+							if (
+								diagnosticB.range.start.character <
+								diagnosticA.range.start.character
+							) {
+								return -1;
+							}
+						});
+
 						for (let diagnostic of diagnostics) {
 							if (diagnostic.code === 'physical-property-detected') {
 								await replaceAsync(diagnostic);
