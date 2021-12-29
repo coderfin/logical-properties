@@ -16,192 +16,194 @@ const ReplacePhysicalWithLogical = require('./ReplacePhysicalWithLogical');
 const TERMS = [
 	// FLOAT
 	{
-		search: 'float: left', // TODO: space optional
-		replacement: 'float: inline-start',
+		search: '(?:[^-]|^)(float:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'float:$2inline-start$4',
 		isStatic: true,
 	},
 	{
-		search: 'float: right',
-		replacement: 'float: inline-end',
+		search: '(?:[^-]|^)(float:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'float:$2inline-end$4',
 		isStatic: true,
 	},
 	{
-		search: 'clear: left',
-		replacement: 'clear: inline-start',
+		search: '(?:[^-]|^)(clear:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'clear:$2inline-start$4',
 		isStatic: true,
 	},
 	{
-		search: 'clear: right',
-		replacement: 'clear: inline-end',
+		search: '(?:[^-]|^)(clear:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'clear:$2inline-end$4',
 		isStatic: true,
 	},
 	// TEXT ALIGN
 	{
-		search: 'text-align: left',
-		replacement: 'text-align: start',
+		search:
+			'(?:[^-]|^)(text-align:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'text-align:$2start$4',
 		isStatic: true,
 	},
 	{
-		search: 'text-align: right',
-		replacement: 'text-align: end',
+		search:
+			'(?:[^-]|^)(text-align:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
+		replacement: 'text-align:$2end$4',
 		isStatic: true,
 	},
 	// POSITION
 	{
-		search: `(?:;|^|\\s)(left: (.*?))(?:;|$|\\s)`,
-		replacement: 'inset-inline-start: $2',
+		search: 'left',
+		replacement: 'inset-inline-start',
 	},
 	{
-		search: `(?:;|^|\\s)(right: (.*?))(?:;|$|\\s)`,
-		replacement: 'inset-inline-end: $2',
+		search: 'right',
+		replacement: 'inset-inline-end',
 	},
 	{
-		search: `(?:;|^|\\s)(top: (.*?))(?:;|$|\\s)`,
-		replacement: 'inset-block-start: $2',
+		search: 'top',
+		replacement: 'inset-block-start',
 	},
 	{
-		search: `(?:;|^|\\s)(bottom: (.*?))(?:;|$|\\s)`,
-		replacement: 'inset-block-end: $2',
+		search: 'bottom',
+		replacement: 'inset-block-end',
 	},
 	// DIMENSIONS
 	{
-		search: `(?:;|^|\\s)(width: (.*?))(?:;|$|\\s)`,
-		replacement: 'inline-size: $2',
+		search: 'width',
+		replacement: 'inline-size',
 	},
 	{
-		search: `(?:;|^|\\s)(height: (.*?))(?:;|$|\\s)`,
-		replacement: 'block-size: $2',
+		search: 'height',
+		replacement: 'block-size',
 	},
 	{
-		search: `(?:;|^|\\s)(min-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'min-inline-size: $2',
+		search: 'min-width',
+		replacement: 'min-inline-size',
 	},
 	{
-		search: `(?:;|^|\\s)(min-height: (.*?))(?:;|$|\\s)`,
-		replacement: 'min-block-size: $2',
+		search: 'min-height',
+		replacement: 'min-block-size',
 	},
 	{
-		search: `(?:;|^|\\s)(max-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'max-inline-size: $2',
+		search: 'max-width',
+		replacement: 'max-inline-size',
 	},
 	{
-		search: `(?:;|^|\\s)(max-height: (.*?))(?:;|$|\\s)`,
-		replacement: 'max-block-size: $2',
+		search: 'max-height',
+		replacement: 'max-block-size',
 	},
 	// MARGINS
 	{
-		search: `(?:;|^|\\s)(margin-left: (.*?))(?:;|$|\\s)`,
-		replacement: 'margin-inline-start: $2',
+		search: 'margin-left',
+		replacement: 'margin-inline-start',
 	},
 	{
-		search: `(?:;|^|\\s)(margin-right: (.*?))(?:;|$|\\s)`,
-		replacement: 'margin-inline-end: $2',
+		search: 'margin-right',
+		replacement: 'margin-inline-end',
 	},
 	{
-		search: `(?:;|^|\\s)(margin-top: (.*?))(?:;|$|\\s)`,
-		replacement: 'margin-block-start: $2',
+		search: 'margin-top',
+		replacement: 'margin-block-start',
 	},
 	{
-		search: `(?:;|^|\\s)(margin-bottom: (.*?))(?:;|$|\\s)`,
-		replacement: 'margin-block-end: $2',
+		search: 'margin-bottom',
+		replacement: 'margin-block-end',
 	},
 	// PADDINGS
 	{
-		search: `(?:;|^|\\s)(padding-left: (.*?))(?:;|$|\\s)`,
-		replacement: 'padding-inline-start: $2',
+		search: 'padding-left',
+		replacement: 'padding-inline-start',
 	},
 	{
-		search: `(?:;|^|\\s)(padding-right: (.*?))(?:;|$|\\s)`,
-		replacement: 'padding-inline-end: $2',
+		search: 'padding-right',
+		replacement: 'padding-inline-end',
 	},
 	{
-		search: `(?:;|^|\\s)(padding-top: (.*?))(?:;|$|\\s)`,
-		replacement: 'padding-block-start: $2',
+		search: 'padding-top',
+		replacement: 'padding-block-start',
 	},
 	{
-		search: `(?:;|^|\\s)(padding-bottom: (.*?))(?:;|$|\\s)`,
-		replacement: 'padding-block-end: $2',
+		search: 'padding-bottom',
+		replacement: 'padding-block-end',
 	},
 	// BORDERS
 	{
-		search: `(?:;|^|\\s)(border-left-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-start-width: $2',
+		search: 'border-left-width',
+		replacement: 'border-inline-start-width',
 	},
 	{
-		search: `(?:;|^|\\s)(border-right-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-end-width: $2',
+		search: 'border-right-width',
+		replacement: 'border-inline-end-width',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-start-width: $2',
+		search: 'border-top-width',
+		replacement: 'border-block-start-width',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom-width: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-end-width: $2',
+		search: 'border-bottom-width',
+		replacement: 'border-block-end-width',
 	},
 	{
-		search: `(?:;|^|\\s)(border-left-color: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-start-color: $2',
+		search: 'border-left-color',
+		replacement: 'border-inline-start-color',
 	},
 	{
-		search: `(?:;|^|\\s)(border-right-color: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-end-color: $2',
+		search: 'border-right-color',
+		replacement: 'border-inline-end-color',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top-color: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-start-color: $2',
+		search: 'border-top-color',
+		replacement: 'border-block-start-color',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom-color: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-end-color: $2',
+		search: 'border-bottom-color',
+		replacement: 'border-block-end-color',
 	},
 	{
-		search: `(?:;|^|\\s)(border-left-style: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-start-style: $2',
+		search: 'border-left-style',
+		replacement: 'border-inline-start-style',
 	},
 	{
-		search: `(?:;|^|\\s)(border-right-style: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-end-style: $2',
+		search: 'border-right-style',
+		replacement: 'border-inline-end-style',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top-style: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-start-style: $2',
+		search: 'border-top-style',
+		replacement: 'border-block-start-style',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom-style: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-end-style: $2',
+		search: 'border-bottom-style',
+		replacement: 'border-block-end-style',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top-left-radius: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-start-start-radius: $2',
+		search: 'border-top-left-radius',
+		replacement: 'border-start-start-radius',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top-right-radius: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-end-start-radius: $2',
+		search: 'border-top-right-radius',
+		replacement: 'border-end-start-radius',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom-left-radius: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-start-end-radius: $2',
+		search: 'border-bottom-left-radius',
+		replacement: 'border-start-end-radius',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom-right-radius: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-end-end-radius: $2',
+		search: 'border-bottom-right-radius',
+		replacement: 'border-end-end-radius',
 	},
 	{
-		search: `(?:;|^|\\s)(border-left: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-start: $2',
+		search: 'border-left',
+		replacement: 'border-inline-start',
 	},
 	{
-		search: `(?:;|^|\\s)(border-right: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-inline-end: $2',
+		search: 'border-right',
+		replacement: 'border-inline-end',
 	},
 	{
-		search: `(?:;|^|\\s)(border-top: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-start: $2',
+		search: 'border-top',
+		replacement: 'border-block-start',
 	},
 	{
-		search: `(?:;|^|\\s)(border-bottom: (.*?))(?:;|$|\\s)`,
-		replacement: 'border-block-end: $2',
+		search: 'border-bottom',
+		replacement: 'border-block-end',
 	},
 ];
 
@@ -216,7 +218,7 @@ async function getDiagnostics(document) {
 	const lines = text.split(/\r\n|\n/);
 
 	let i = 0;
-	while (lines.length > i && !/\s*}/.test(lines[i])) {
+	while (lines.length > i) {
 		for (let j = 0; j < TERMS.length; j++) {
 			let { search, replacement, isStatic } = TERMS[j];
 
@@ -225,54 +227,47 @@ async function getDiagnostics(document) {
 				continue;
 			}
 
-			let start;
-			let end;
+			let toSearch = isStatic
+				? search
+				: `(?:[^-]|^)(${search}:(\\s*)(.*?)(\\s!important)?)(?:;|$|\\s|"|})`;
+			let withReplacement = isStatic ? replacement : `${replacement}:$2$3$4`;
+			const matchesRegExp = new RegExp(toSearch, 'dig'); // flag 'd' gets the indices of the groups
+			const replaceRegExp = new RegExp(toSearch, 'gi');
 			let finalSearch;
 			let finalReplacement;
-			if (isStatic) {
-				start = lines[i].search(searchTermRegExp);
-				end = start + search.length;
-
-				if (lines[i].substring(end, end + 1) === ';') {
-					end += 1;
-					search += ';';
-					replacement += ';';
-				}
-
-				finalSearch = search;
-				finalReplacement = replacement;
-			} else {
-				const matchesRegExp = new RegExp(search, 'dig'); // flag 'd' gets the indices of the groups
-				const matches = matchesRegExp.exec(lines[i]);
-
+			let start;
+			let end;
+			let matches;
+			while ((matches = matchesRegExp.exec(lines[i])) !== null) {
 				// @ts-ignore
 				start = matches.indices[1][0]; // start location of the match group without whitespace, etc.
 				// @ts-ignore
 				end = matches.indices[1][1];
 
 				finalSearch = matches[1];
+				finalReplacement = withReplacement;
 
 				if (lines[i].substring(end, end + 1) === ';') {
 					end += 1;
 					finalSearch += ';';
-					replacement += ';';
+					finalReplacement += ';';
 				}
 
-				finalReplacement = finalSearch.replace(matchesRegExp, replacement);
-			}
+				finalReplacement = finalSearch.replace(replaceRegExp, finalReplacement);
 
-			diagnostics.push({
-				severity: vscode.DiagnosticSeverity.Warning,
-				message: `🧠 ${finalReplacement} ⇔ ${finalSearch} 💪`,
-				term: {
-					search: finalSearch,
-					replacement: finalReplacement,
-					isStatic,
-				},
-				code: 'physical-property-detected',
-				source: 'Logical Properties',
-				range: new vscode.Range(i, start, i, end),
-			});
+				diagnostics.push({
+					severity: vscode.DiagnosticSeverity.Warning,
+					message: `🧠 ${finalReplacement} ⇔ ${finalSearch} 💪`,
+					term: {
+						search: finalSearch,
+						replacement: finalReplacement,
+						isStatic,
+					},
+					code: 'physical-property-detected',
+					source: 'Logical Properties',
+					range: new vscode.Range(i, start, i, end),
+				});
+			}
 		}
 
 		i++;
