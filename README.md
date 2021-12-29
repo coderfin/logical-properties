@@ -34,7 +34,7 @@ This extension contributes the following:
 - Supported Languages
     - Testing has only been done on `.css`, `.html`, and `.jsx` files.
     - In theory the following languages are supported:
-    "onLanguage:coffeescript",
+        - coffeescript
 		- css
 		- html
 		- javascript
