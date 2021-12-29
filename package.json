@@ -18,10 +18,11 @@
 	"homepage": "https://github.com/coderfin/logical-properties",
 	"license": "MIT",
 	"author": {
-		"name": "CoderFin",
+		"name": "coderfin",
 		"url": "https://github.com/coderfin",
 		"email": "coderfin@gmail.com"
 	},
+	"publisher": "coderfin",
 	"main": "./extension.js",
 	"repository": {
 		"type": "git",
@@ -97,5 +98,11 @@
 				"group": "logicalProperties@1"
 		  }]
 		}
-	}
+	},
+	"galleryBanner": {
+		"color": "#FFDE34",
+		"theme": "light"
+	},
+	"preview": true,
+	"icon": "images/icon.png"
 }
