@@ -282,7 +282,9 @@ async function getDiagnostics(document) {
  * @returns {Promise<void>}
  */
 async function handler(diagnosticCollection, document) {
-	diagnosticCollection.set(document.uri, await getDiagnostics(document));
+	if (document) {
+		diagnosticCollection.set(document.uri, await getDiagnostics(document));
+	}
 }
 
 /**
@@ -295,7 +297,11 @@ async function updateStatusBarItem() {
 	const diagnosticsResponses = vscode.languages.getDiagnostics();
 
 	for (let diagnosticsResponse of diagnosticsResponses) {
-		const currentDocument = vscode.window.activeTextEditor.document;
+		const currentDocument = vscode.window.activeTextEditor?.document;
+		if (!currentDocument) {
+			continue;
+		}
+
 		const [documentUri, diagnostics] =
 			/** @type {[vscode.Uri, Diagnostic[]]} */ (
 				/** @type {unknown} */ (diagnosticsResponse)
@@ -353,7 +359,7 @@ async function activate(context) {
 		updateStatusBarItem();
 	});
 	const didChange = vscode.workspace.onDidChangeTextDocument(async (event) => {
-		await handler(diagnosticCollection, event.document);
+		await handler(diagnosticCollection, event?.document);
 
 		updateStatusBarItem();
 	});
@@ -387,7 +393,7 @@ async function activate(context) {
 	if (vscode.window.activeTextEditor) {
 		await handler(
 			diagnosticCollection,
-			vscode.window.activeTextEditor.document
+			vscode.window.activeTextEditor?.document
 		);
 	}
 

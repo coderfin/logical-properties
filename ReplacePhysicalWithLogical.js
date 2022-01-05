@@ -44,7 +44,11 @@ class ReplacePhysicalWithLogical {
 		const commandReplaceAll = vscode.commands.registerCommand(
 			'logical-properties.replacePhysicalWithLogicalReplaceAll',
 			async () => {
-				const currentDocument = vscode.window.activeTextEditor.document;
+				const currentDocument = vscode.window.activeTextEditor?.document;
+				if (!currentDocument) {
+					return;
+				}
+
 				const diagnosticsResponses = vscode.languages.getDiagnostics();
 
 				for (let diagnosticsResponse of diagnosticsResponses.reverse()) {

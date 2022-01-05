@@ -59,6 +59,12 @@ Limited testing of this extension has been done.
 
 ## Release Notes
 
+### 0.1.4
+
+Added `onStartupFinished` activation event
+- Fixes a bug where the extension would not work on the first time it was installed.
+    - See [#1](https://github.com/coderfin/logical-properties/issues/1)
+
 ### 0.1.0
 
 Initial release
