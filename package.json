@@ -1,6 +1,6 @@
 {
   	"name": "logical-properties",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
 		"css",
@@ -31,7 +31,9 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./test/runTest.js",
+		"publish": "vsce publish",
+		"login": "vsce login"
 	},
 	"devDependencies": {
         "@types/vscode": "^1.63.0",
@@ -50,7 +52,7 @@
 	"private": true,
 	"displayName": "🧠 Logical Properties",
 	"activationEvents": [
-		"onStartupFinished",
+		"onUri",
 		"onLanguage:coffeescript",
 		"onLanguage:css",
 		"onLanguage:html",

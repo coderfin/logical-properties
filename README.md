@@ -61,7 +61,7 @@ Limited testing of this extension has been done.
 
 ### 0.1.4
 
-Added `onStartupFinished` activation event
+Added `onUri` activation event
 - Fixes a bug where the extension would not work on the first time it was installed.
     - See [#1](https://github.com/coderfin/logical-properties/issues/1)
 
