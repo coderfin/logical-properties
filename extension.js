@@ -349,8 +349,6 @@ No physical properties detected!`;
  * @returns {Promise<void>}
  */
 async function activate(context) {
-	vscode.extensions.getExtension('coderfin.logical-properties').activate();
-
 	const diagnosticCollection =
 		vscode.languages.createDiagnosticCollection('logical-properties');
 
@@ -365,6 +363,15 @@ async function activate(context) {
 
 		updateStatusBarItem();
 	});
+	const didChangeVisible = vscode.window.onDidChangeVisibleTextEditors(
+		async (textEditors) => {
+			for (let textEditor of textEditors) {
+				await handler(diagnosticCollection, textEditor?.document);
+			}
+
+			updateStatusBarItem();
+		}
+	);
 
 	// Lightbulb/Quick Fix action
 	const codeActionProvider = vscode.languages.registerCodeActionsProvider(
@@ -404,6 +411,7 @@ async function activate(context) {
 		diagnosticCollection,
 		didOpen,
 		didChange,
+		didChangeVisible,
 		codeActionProvider
 	);
 
@@ -416,10 +424,9 @@ async function activate(context) {
 
 	// register some listener that make sure the status bar item always up-to-date
 	context.subscriptions.push(
-		vscode.window.onDidChangeActiveTextEditor(updateStatusBarItem)
-	);
-	context.subscriptions.push(
-		vscode.window.onDidChangeTextEditorSelection(updateStatusBarItem)
+		vscode.window.onDidChangeActiveTextEditor(updateStatusBarItem),
+		vscode.window.onDidChangeTextEditorSelection(updateStatusBarItem),
+		vscode.window.onDidChangeVisibleTextEditors(updateStatusBarItem)
 	);
 
 	// update status bar item once at start
