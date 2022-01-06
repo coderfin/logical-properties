@@ -51,7 +51,7 @@ This extension contributes the following:
 		- vue
 		- vue-html
 		- xml
-		- xs
+		- xsl
 
 ## Known Issues
 
