@@ -307,7 +307,7 @@ async function updateStatusBarItem() {
 				/** @type {unknown} */ (diagnosticsResponse)
 			);
 
-		if (documentUri === currentDocument.uri && diagnostics?.length) {
+		if (documentUri.path === currentDocument.uri.path && diagnostics?.length) {
 			for (let diagnostic of diagnostics) {
 				if (diagnostic.code === 'physical-property-detected') {
 					numberOfDiagnostics++;
