@@ -59,7 +59,7 @@ Limited testing of this extension has been done.
 
 ## Release Notes
 
-### 0.1.6
+### 0.1.9
 
 Fixed activation
 - Fixes a bug where the extension would not work on the first time it was installed.
