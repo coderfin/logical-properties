@@ -59,9 +59,9 @@ Limited testing of this extension has been done.
 
 ## Release Notes
 
-### 0.1.4
+### 0.1.6
 
-Added `onUri` activation event
+Fixed activation
 - Fixes a bug where the extension would not work on the first time it was installed.
     - See [#1](https://github.com/coderfin/logical-properties/issues/1)
 

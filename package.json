@@ -1,6 +1,6 @@
 {
   	"name": "logical-properties",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
 		"css",
@@ -52,7 +52,6 @@
 	"private": true,
 	"displayName": "🧠 Logical Properties",
 	"activationEvents": [
-		"onUri",
 		"onLanguage:coffeescript",
 		"onLanguage:css",
 		"onLanguage:html",

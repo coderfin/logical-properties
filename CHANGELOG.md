@@ -1,9 +1,11 @@
 # Change Log
 
-All notable changes to the "logical-properties" extension will be documented in this file.
+### 0.1.6
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+Fixed activation
+- Fixes a bug where the extension would not work on the first time it was installed.
+    - See [#1](https://github.com/coderfin/logical-properties/issues/1)
 
-## [Unreleased]
+### 0.1.0
 
-- Initial release
+Initial release
