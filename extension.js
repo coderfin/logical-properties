@@ -212,6 +212,10 @@ const TERMS = [
  * @returns {Promise<vscode.Diagnostic[]>}
  */
 async function getDiagnostics(document) {
+	if (document.isClosed) {
+		return [];
+	}
+
 	const text = document.getText();
 	const diagnostics = [];
 
@@ -282,7 +286,7 @@ async function getDiagnostics(document) {
  * @returns {Promise<void>}
  */
 async function handler(diagnosticCollection, document) {
-	if (document) {
+	if (document && document.uri.scheme === 'file') {
 		diagnosticCollection.set(document.uri, await getDiagnostics(document));
 	}
 }
@@ -307,7 +311,11 @@ async function updateStatusBarItem() {
 				/** @type {unknown} */ (diagnosticsResponse)
 			);
 
-		if (documentUri.path === currentDocument.uri.path && diagnostics?.length) {
+		if (
+			documentUri.scheme === 'file' &&
+			documentUri.path === currentDocument.uri.path &&
+			diagnostics?.length
+		) {
 			for (let diagnostic of diagnostics) {
 				if (diagnostic.code === 'physical-property-detected') {
 					numberOfDiagnostics++;
@@ -354,6 +362,11 @@ async function activate(context) {
 
 	// When to run the check
 	const didOpen = vscode.workspace.onDidOpenTextDocument(async (document) => {
+		await handler(diagnosticCollection, document);
+
+		updateStatusBarItem();
+	});
+	const didClose = vscode.workspace.onDidCloseTextDocument(async (document) => {
 		await handler(diagnosticCollection, document);
 
 		updateStatusBarItem();
@@ -410,6 +423,7 @@ async function activate(context) {
 	context.subscriptions.push(
 		diagnosticCollection,
 		didOpen,
+		didClose,
 		didChange,
 		didChangeVisible,
 		codeActionProvider
