@@ -1,5 +1,11 @@
 # Change Log
 
+### 0.1.10
+
+Fixed which files diagnostics are shown for
+- Previously `.git` files were showing diagnostics
+- Files that were closed were still showing in `Problems`
+
 ### 0.1.9
 
 Fixed activation
