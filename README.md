@@ -57,7 +57,7 @@ This extension contributes the following:
 
 ## Gotchas
 
-> A few things to be aware of when using this extension:
+A few things to be aware of when using this extension:
 
 - False positives/negatives are possible.
   - For example, in an HTML file if you use an `image` tag with the `height` attribute,
