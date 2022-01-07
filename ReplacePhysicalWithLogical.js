@@ -96,7 +96,7 @@ class ReplacePhysicalWithLogical {
 		context.subscriptions.push(commandQuickFix);
 	}
 
-	provideCodeActions(document, range, context, token) {
+	provideCodeActions(document, range, context) {
 		// for each diagnostic entry that has the matching `code`, create a code action command
 		return context.diagnostics
 			.filter((diagnostic) => diagnostic.code === 'physical-property-detected')

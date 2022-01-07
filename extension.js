@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const ReplacePhysicalWithLogical = require('./ReplacePhysicalWithLogical');
+const execWithIndices = require('regexp-match-indices');
 
 /**
  * @typedef Diagnostic
@@ -235,14 +236,14 @@ async function getDiagnostics(document) {
 				? search
 				: `(?:[^-]|^)(${search}:(\\s*)(.*?)(\\s!important)?)(?:;|$|\\s|"|})`;
 			let withReplacement = isStatic ? replacement : `${replacement}:$2$3$4`;
-			const matchesRegExp = new RegExp(toSearch, 'dig'); // flag 'd' gets the indices of the groups
+			const matchesRegExp = new RegExp(toSearch, 'gi');
 			const replaceRegExp = new RegExp(toSearch, 'gi');
 			let finalSearch;
 			let finalReplacement;
 			let start;
 			let end;
 			let matches;
-			while ((matches = matchesRegExp.exec(lines[i])) !== null) {
+			while ((matches = execWithIndices(matchesRegExp, lines[i])) !== null) {
 				// @ts-ignore
 				start = matches.indices[1][0]; // start location of the match group without whitespace, etc.
 				// @ts-ignore
@@ -334,7 +335,7 @@ async function updateStatusBarItem() {
 	if (numberOfDiagnostics) {
 		statusBarItem.command =
 			'logical-properties.replacePhysicalWithLogicalReplaceAll';
-		statusBarItem.tooltip = `${numberOfDiagnostics} physical ${
+		statusBarItem.tooltip = `${numberOfDiagnostics} possible physical ${
 			numberOfDiagnostics ? 'properties' : 'property'
 		} detected. 💪
 
@@ -389,24 +390,24 @@ async function activate(context) {
 	// Lightbulb/Quick Fix action
 	const codeActionProvider = vscode.languages.registerCodeActionsProvider(
 		[
-			'coffeescript',
-			'css',
-			'html',
-			'javascript',
-			'javascriptreact',
-			'less',
-			'markdown',
-			'php',
-			'plaintext',
-			'sass',
-			'scss',
-			'stylus',
-			'typescript',
-			'typescriptreact',
-			'vue',
-			'vue-html',
-			'xml',
-			'xsl',
+			{ scheme: 'file', language: 'coffeescript' },
+			{ scheme: 'file', language: 'css' },
+			{ scheme: 'file', language: 'html' },
+			{ scheme: 'file', language: 'javascript' },
+			{ scheme: 'file', language: 'javascriptreact' },
+			{ scheme: 'file', language: 'less' },
+			{ scheme: 'file', language: 'markdown' },
+			{ scheme: 'file', language: 'php' },
+			{ scheme: 'file', language: 'plaintext' },
+			{ scheme: 'file', language: 'sass' },
+			{ scheme: 'file', language: 'scss' },
+			{ scheme: 'file', language: 'stylus' },
+			{ scheme: 'file', language: 'typescript' },
+			{ scheme: 'file', language: 'typescriptreact' },
+			{ scheme: 'file', language: 'vue' },
+			{ scheme: 'file', language: 'vue-html' },
+			{ scheme: 'file', language: 'xml' },
+			{ scheme: 'file', language: 'xsl' },
 		],
 		new ReplacePhysicalWithLogical(context, updateStatusBarItem)
 	);

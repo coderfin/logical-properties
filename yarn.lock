@@ -55,14 +55,14 @@
   integrity sha1-MgW80Vram8aBrCC+9k6ebfiP0pc=
 
 "@types/node@*":
-  version "17.0.2"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/@types/node/-/node-17.0.2.tgz#a4c07d47ff737e8ee7e586fe636ff0e1ddff070a"
-  integrity sha1-pMB9R/9zfo7n5Yb+Y2/w4d3/Bwo=
+  version "17.0.8"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/@types/node/-/node-17.0.8.tgz#50d680c8a8a78fe30abe6906453b21ad8ab0ad7b"
+  integrity sha1-UNaAyKinj+MKvmkGRTshrYqwrXs=
 
 "@types/node@14.x":
-  version "14.18.2"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/@types/node/-/node-14.18.2.tgz#00fe4d1686d5f6cf3a2f2e9a0eef42594d06abfc"
-  integrity sha1-AP5NFobV9s86Ly6aDu9CWU0Gq/w=
+  version "14.18.5"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/@types/node/-/node-14.18.5.tgz#0dd636fe7b2c6055cbed0d4ca3b7fb540f130a96"
+  integrity sha1-DdY2/nssYFXL7Q1Mo7f7VA8TCpY=
 
 "@types/vscode@^1.63.0":
   version "1.63.1"
@@ -89,10 +89,10 @@ acorn-jsx@^5.3.1:
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha1-ftW7VZCLOy8bxVxq8WU7rafweTc=
 
-acorn@^8.6.0:
-  version "8.6.0"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/acorn/-/acorn-8.6.0.tgz#e3692ba0eb1a0c83eaa4f37f5fa7368dd7142895"
-  integrity sha1-42kroOsaDIPqpPN/X6c2jdcUKJU=
+acorn@^8.7.0:
+  version "8.7.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/acorn/-/acorn-8.7.0.tgz#90951fde0f8f09df93549481e5fc141445b791cf"
+  integrity sha1-kJUf3g+PCd+TVJSB5fwUFEW3kc8=
 
 agent-base@6:
   version "6.0.2"
@@ -205,9 +205,9 @@ callsites@^3.0.0:
   integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
 
 camelcase@^6.0.0:
-  version "6.2.1"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/camelcase/-/camelcase-6.2.1.tgz#250fd350cfd555d0d2160b1d51510eaf8326e86e"
-  integrity sha1-JQ/TUM/VVdDSFgsdUVEOr4Mm6G4=
+  version "6.3.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
+  integrity sha1-VoW5XrIJrJwMF3Rnd4ychN9Yupo=
 
 chainsaw@~0.1.0:
   version "0.1.0"
@@ -239,6 +239,14 @@ chokidar@3.5.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
+cli@~1.0.0:
+  version "1.0.1"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/cli/-/cli-1.0.1.tgz#22817534f24bfa4950c34d532d48ecbc621b8c14"
+  integrity sha1-IoF1NPJL+klQw01TLUjsvGIbjBQ=
+  dependencies:
+    exit "0.1.2"
+    glob "^7.1.1"
+
 cliui@^7.0.2:
   version "7.0.4"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/cliui/-/cliui-7.0.4.tgz#a0265ee655476fc807aea9df3df8df7783808b4f"
@@ -265,6 +273,13 @@ concat-map@0.0.1:
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
+console-browserify@1.1.x:
+  version "1.1.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
+  integrity sha1-8CQcRXMKn8YyOyBtvzjtx0HQuxA=
+  dependencies:
+    date-now "^0.1.4"
+
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -278,6 +293,11 @@ cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+date-now@^0.1.4:
+  version "0.1.4"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
 
 debug@4, debug@^4.1.1, debug@^4.3.2:
   version "4.3.3"
@@ -315,6 +335,39 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dom-serializer@0:
+  version "0.2.2"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
+  integrity sha1-GvuB9TNxcXXUeGVd68XjMtn5u1E=
+  dependencies:
+    domelementtype "^2.0.1"
+    entities "^2.0.0"
+
+domelementtype@1:
+  version "1.3.1"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
+  integrity sha1-0EjESzew0Qp/Kj1f7j9DM9eQSB8=
+
+domelementtype@^2.0.1:
+  version "2.2.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/domelementtype/-/domelementtype-2.2.0.tgz#9a0b6c2782ed6a1c7323d42267183df9bd8b1d57"
+  integrity sha1-mgtsJ4LtahxzI9QiZxg9+b2LHVc=
+
+domhandler@2.3:
+  version "2.3.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/domhandler/-/domhandler-2.3.0.tgz#2de59a0822d5027fabff6f032c2b25a2a8abe738"
+  integrity sha1-LeWaCCLVAn+r/28DLCsloqir5zg=
+  dependencies:
+    domelementtype "1"
+
+domutils@1.5:
+  version "1.5.1"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
+  integrity sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
+
 duplexer2@~0.1.4:
   version "0.1.4"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -333,6 +386,16 @@ enquirer@^2.3.5:
   integrity sha1-Kn/l3WNKHkElqXXsmU/1RW3Dc00=
   dependencies:
     ansi-colors "^4.1.1"
+
+entities@1.0:
+  version "1.0.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/entities/-/entities-1.0.0.tgz#b2987aa3821347fcde642b24fdfc9e4fb712bf26"
+  integrity sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY=
+
+entities@^2.0.0:
+  version "2.2.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
+  integrity sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -370,9 +433,9 @@ eslint-visitor-keys@^3.1.0:
   integrity sha1-7uSs6okYFM2men2IEtlkfdAXmvI=
 
 eslint@^8.1.0:
-  version "8.5.0"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/eslint/-/eslint-8.5.0.tgz#ddd2c1afd8f412036f87ae2a063d2aa296d3175f"
-  integrity sha1-3dLBr9j0EgNvh64qBj0qopbTF18=
+  version "8.6.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/eslint/-/eslint-8.6.0.tgz#4318c6a31c5584838c1a2e940c478190f58d558e"
+  integrity sha1-QxjGoxxVhIOMGi6UDEeBkPWNVY4=
   dependencies:
     "@eslint/eslintrc" "^1.0.5"
     "@humanwhocodes/config-array" "^0.9.2"
@@ -386,7 +449,7 @@ eslint@^8.1.0:
     eslint-scope "^7.1.0"
     eslint-utils "^3.0.0"
     eslint-visitor-keys "^3.1.0"
-    espree "^9.2.0"
+    espree "^9.3.0"
     esquery "^1.4.0"
     esutils "^2.0.2"
     fast-deep-equal "^3.1.3"
@@ -413,12 +476,12 @@ eslint@^8.1.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-espree@^9.2.0:
-  version "9.2.0"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/espree/-/espree-9.2.0.tgz#c50814e01611c2d0f8bd4daa83c369eabba80dbc"
-  integrity sha1-xQgU4BYRwtD4vU2qg8Np6ruoDbw=
+espree@^9.2.0, espree@^9.3.0:
+  version "9.3.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/espree/-/espree-9.3.0.tgz#c1240d79183b72aaee6ccfa5a90bc9111df085a8"
+  integrity sha1-wSQNeRg7cqrubM+lqQvJER3whag=
   dependencies:
-    acorn "^8.6.0"
+    acorn "^8.7.0"
     acorn-jsx "^5.3.1"
     eslint-visitor-keys "^3.1.0"
 
@@ -445,6 +508,11 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha1-dNLrTeC42hKTcRkQ1Qd1ubcQ72Q=
+
+exit@0.1.2, exit@0.1.x:
+  version "0.1.2"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
+  integrity sha1-BjJjj42HfMghB9MKD/8aF8uhzQw=
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -557,7 +625,7 @@ glob@7.1.7:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.1.3, glob@^7.1.7:
+glob@^7.1.1, glob@^7.1.3, glob@^7.1.7:
   version "7.2.0"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
   integrity sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=
@@ -577,9 +645,9 @@ globals@^13.6.0, globals@^13.9.0:
     type-fest "^0.20.2"
 
 graceful-fs@^4.1.2, graceful-fs@^4.2.2:
-  version "4.2.8"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
-  integrity sha1-5BK40z9eAGWTy9PO5t+fLOu+gCo=
+  version "4.2.9"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
+  integrity sha1-BBsF30V1Xlh6JJQiebnRExRuHJY=
 
 growl@1.10.5:
   version "1.10.5"
@@ -595,6 +663,17 @@ he@1.2.0:
   version "1.2.0"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
+
+htmlparser2@3.8.x:
+  version "3.8.3"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/htmlparser2/-/htmlparser2-3.8.3.tgz#996c28b191516a8be86501a7d79757e5c70c1068"
+  integrity sha1-mWwosZFRaovoZQGn15dX5ccMEGg=
+  dependencies:
+    domelementtype "1"
+    domhandler "2.3"
+    domutils "1.5"
+    entities "1.0"
+    readable-stream "1.1"
 
 http-proxy-agent@^4.0.1:
   version "4.0.1"
@@ -639,7 +718,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@~2.0.0, inherits@~2.0.3:
+inherits@2, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.4"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
@@ -683,6 +762,11 @@ is-unicode-supported@^0.1.0:
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
   integrity sha1-PybHaoCVk7Ur+i7LVxDtJ3m1Iqc=
 
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+
 isarray@~1.0.0:
   version "1.0.0"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
@@ -699,6 +783,20 @@ js-yaml@4.1.0, js-yaml@^4.1.0:
   integrity sha1-wftl+PUBeQHN0slRhkuhhFihBgI=
   dependencies:
     argparse "^2.0.1"
+
+jshint@^2.13.3:
+  version "2.13.3"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/jshint/-/jshint-2.13.3.tgz#283b8b3f3601f20fe668c63c0347db664fa1f1a5"
+  integrity sha1-KDuLPzYB8g/maMY8A0fbZk+h8aU=
+  dependencies:
+    cli "~1.0.0"
+    console-browserify "1.1.x"
+    exit "0.1.x"
+    htmlparser2 "3.8.x"
+    lodash "~4.17.21"
+    minimatch "~3.0.2"
+    shelljs "0.3.x"
+    strip-json-comments "1.0.x"
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"
@@ -735,6 +833,11 @@ lodash.merge@^4.6.2:
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
 
+lodash@~4.17.21:
+  version "4.17.21"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
+
 log-symbols@4.1.0:
   version "4.1.0"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/log-symbols/-/log-symbols-4.1.0.tgz#3fbdbb95b4683ac9fc785111e792e558d4abd503"
@@ -750,7 +853,7 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-minimatch@3.0.4, minimatch@^3.0.4:
+minimatch@3.0.4, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
@@ -880,9 +983,9 @@ path-key@^3.1.0:
   integrity sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U=
 
 picomatch@^2.0.4, picomatch@^2.2.1:
-  version "2.3.0"
-  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
-  integrity sha1-8fBh3o9qS/AiiS4tEoI0+5gwKXI=
+  version "2.3.1"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
+  integrity sha1-O6ODNzNkbZ0+SZWUbBNlpn+wekI=
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -911,6 +1014,16 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+readable-stream@1.1:
+  version "1.1.13"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/readable-stream/-/readable-stream-1.1.13.tgz#f6eef764f514c89e2b9e23146a75ba106756d23e"
+  integrity sha1-9u73ZPUUyJ4rniMUanW6EGdW0j4=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
+
 readable-stream@^2.0.2, readable-stream@~2.3.6:
   version "2.3.7"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
@@ -930,6 +1043,18 @@ readdirp@~3.6.0:
   integrity sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=
   dependencies:
     picomatch "^2.2.1"
+
+regexp-match-indices@^1.0.2:
+  version "1.0.2"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/regexp-match-indices/-/regexp-match-indices-1.0.2.tgz#cf20054a6f7d5b3e116a701a7b00f82889d10da6"
+  integrity sha1-zyAFSm99Wz4RanAaewD4KInRDaY=
+  dependencies:
+    regexp-tree "^0.1.11"
+
+regexp-tree@^0.1.11:
+  version "0.1.24"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/regexp-tree/-/regexp-tree-0.1.24.tgz#3d6fa238450a4d66e5bc9c4c14bb720e2196829d"
+  integrity sha1-PW+iOEUKTWblvJxMFLtyDiGWgp0=
 
 regexpp@^3.2.0:
   version "3.2.0"
@@ -1001,6 +1126,11 @@ shebang-regex@^3.0.0:
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha1-rhbxZE2HPsrYQ7AwexQzYtTEIXI=
 
+shelljs@0.3.x:
+  version "0.3.0"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/shelljs/-/shelljs-0.3.0.tgz#3596e6307a781544f591f37da618360f31db57b1"
+  integrity sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E=
+
 string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
   resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
@@ -1009,6 +1139,11 @@ string-width@^4.1.0, string-width@^4.2.0:
     emoji-regex "^8.0.0"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.1"
+
+string_decoder@~0.10.x:
+  version "0.10.31"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
 
 string_decoder@~1.1.1:
   version "1.1.1"
@@ -1023,6 +1158,11 @@ strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   integrity sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=
   dependencies:
     ansi-regex "^5.0.1"
+
+strip-json-comments@1.0.x:
+  version "1.0.4"
+  resolved "https://familysearch.jfrog.io/artifactory/api/npm/fs-npm-prod-virtual/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
+  integrity sha1-HhX7ysl9Pumb8tc7TGVrCCu6+5E=
 
 strip-json-comments@3.1.1, strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   version "3.1.1"
