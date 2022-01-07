@@ -79,6 +79,7 @@ Fix an issue related to regex matching indices not currently supported in node.j
   - Electron uses node.js for local apis
     - node.js does not currently support regex matching indices (`d` flag, `hasIndices`)
 - Using a polyfill
+- See [#2](https://github.com/coderfin/logical-properties/issues/2)
 
 ### 0.1.10
 
