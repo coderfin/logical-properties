@@ -22,7 +22,7 @@ This extension contributes the following:
   - Replaces all of the detected physical properties with logical properties in the current file.
   - <img src="images/context-menu.png" alt="Editor Context Menu" width="450px" />
 - Problems
-  - Shows any warning(s) if the an open file contains physical properties.
+  - Shows any warning(s) if an open file contains physical properties.
   - <img src="images/problems.png" alt="Problems" width="450px" />
 - Quick Fix/Light Bulb
   - Quickly change a single physical property to its equivalent logical property.
