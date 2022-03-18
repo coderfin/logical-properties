@@ -1,3 +1,5 @@
+// ./setup-pnp needs to be required first
+require('../../src/setup-pnp');
 const path = require('path');
 const Mocha = require('mocha');
 const glob = require('glob');
@@ -7,6 +9,7 @@ function run() {
 	const mocha = new Mocha({
 		ui: 'tdd',
 		color: true,
+		timeout: 100000,
 	});
 
 	const testsRoot = path.resolve(__dirname, '..');

@@ -1,6 +1,7 @@
 {
 	"name": "logical-properties",
-	"version": "0.1.11",
+	"version": "0.2.0",
+	"packageManager": "yarn@3.1.1",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
 		"css",
@@ -23,17 +24,19 @@
 		"email": "coderfin@gmail.com"
 	},
 	"publisher": "coderfin",
-	"main": "./extension.js",
+	"main": "./src/extension.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/coderfin/logical-properties.git"
 	},
 	"scripts": {
 		"lint": "eslint .",
+		"login": "vsce login",
+		"package": "vsce package --no-dependencies",
 		"pretest": "yarn run lint",
+		"publish": "vsce publish --no-dependencies",
 		"test": "node ./test/runTest.js",
-		"publish": "vsce publish",
-		"login": "vsce login"
+		"test:generate:css": "node ./test/suite/generate-css-test-files.js --generate"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.4",
@@ -44,11 +47,13 @@
 		"eslint": "^8.1.0",
 		"glob": "^7.1.7",
 		"jshint": "^2.13.3",
-		"mocha": "^9.1.3",
+		"mocha": "^9.2.0",
+		"prettier": "^2.5.1",
 		"typescript": "^4.4.4"
 	},
 	"dependencies": {
-		"regexp-match-indices": "^1.0.2"
+		"css-tree": "^2.0.4",
+		"stylelint": "^14.5.3"
 	},
 	"engines": {
 		"vscode": "^1.63.0"

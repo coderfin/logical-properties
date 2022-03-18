@@ -9,15 +9,21 @@
 			"name": "Run Extension",
 			"type": "extensionHost",
 			"request": "launch",
-			"args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+			"args": [
+				"${workspaceFolder}/test/suite/test-files",
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				"--disable-extensions"
+			]
 		},
 		{
 			"name": "Extension Tests",
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
+				"${workspaceFolder}/test/suite/test-files",
 				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestsPath=${workspaceFolder}/test/suite/index"
+				"--extensionTestsPath=${workspaceFolder}/test/suite/index",
+				"--disable-extensions"
 			]
 		}
 	]
