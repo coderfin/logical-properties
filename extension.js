@@ -180,11 +180,11 @@ const TERMS = [
 	},
 	{
 		search: 'border-top-right-radius',
-		replacement: 'border-end-start-radius',
+		replacement: 'border-start-end-radius',
 	},
 	{
 		search: 'border-bottom-left-radius',
-		replacement: 'border-start-end-radius',
+		replacement: 'border-end-start-radius',
 	},
 	{
 		search: 'border-bottom-right-radius',
