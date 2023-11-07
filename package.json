@@ -32,6 +32,7 @@
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
 		"test": "node ./test/runTest.js",
+		"package": "vsce package",
 		"publish": "vsce publish",
 		"login": "vsce login"
 	},
