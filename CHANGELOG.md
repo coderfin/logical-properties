@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.1.12
+
+- Fixed `border-top-right-radius` --> `border-start-end-radius`
+- Fixed `border-bottom-left-radius` --> `border-end-start-radius`
+
 ## 0.1.11
 
 Fix an issue related to regex matching indices not currently supported in node.js
