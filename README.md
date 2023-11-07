@@ -71,6 +71,13 @@ Limited testing of this extension has been done.
 
 ## Release Notes
 
+## 0.1.12
+
+- Fixed `border-top-right-radius` --> `border-start-end-radius` and Fixed `border-bottom-left-radius` --> `border-end-start-radius`
+ - See [#7](https://github.com/coderfin/logical-properties/issues/7)
+ - See [#8](https://github.com/coderfin/logical-properties/issues/8)
+ - See [#9](https://github.com/coderfin/logical-properties/issues/9)
+
 ## 0.1.11
 
 Fix an issue related to regex matching indices not currently supported in node.js
