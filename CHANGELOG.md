@@ -1,9 +1,22 @@
 # Change Log
 
+## 0.1.14
+
+- Fixed the extension to no longer check for or update values within media queries.
+  - Logical properties aren't supported in media queries.
+  - Note that the check is very simple and checks for `@media` to determine if a replacement should be made. This could lead to false positives or false negatives.
+  - See [#4](https://github.com/coderfin/logical-properties/issues/4)
+- Ignore specific CSS properties
+  - Added a way to ignore specific properties through the `logicalProperties.ignoreList` setting.
+  - See [#14](https://github.com/coderfin/logical-properties/issues/14)
+
 ## 0.1.12
 
 - Fixed `border-top-right-radius` --> `border-start-end-radius`
 - Fixed `border-bottom-left-radius` --> `border-end-start-radius`
+- See [#7](https://github.com/coderfin/logical-properties/issues/7)
+- See [#8](https://github.com/coderfin/logical-properties/issues/8)
+- See [#9](https://github.com/coderfin/logical-properties/issues/9)
 
 ## 0.1.11
 

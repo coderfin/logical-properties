@@ -20,21 +20,25 @@ const TERMS = [
 		search: '(?:[^-]|^)(float:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'float:$2inline-start$4',
 		isStatic: true,
+		ignoreNames: ['float', 'float-left'],
 	},
 	{
 		search: '(?:[^-]|^)(float:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'float:$2inline-end$4',
 		isStatic: true,
+		ignoreNames: ['float', 'float-right'],
 	},
 	{
 		search: '(?:[^-]|^)(clear:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'clear:$2inline-start$4',
 		isStatic: true,
+		ignoreNames: ['clear', 'clear-left'],
 	},
 	{
 		search: '(?:[^-]|^)(clear:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'clear:$2inline-end$4',
 		isStatic: true,
+		ignoreNames: ['clear', 'clear-right'],
 	},
 	// TEXT ALIGN
 	{
@@ -42,12 +46,14 @@ const TERMS = [
 			'(?:[^-]|^)(text-align:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'text-align:$2start$4',
 		isStatic: true,
+		ignoreNames: ['text-align', 'text-align-left'],
 	},
 	{
 		search:
 			'(?:[^-]|^)(text-align:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'text-align:$2end$4',
 		isStatic: true,
+		ignoreNames: ['text-align', 'text-align-right'],
 	},
 	// POSITION
 	{
@@ -217,6 +223,9 @@ async function getDiagnostics(document) {
 		return [];
 	}
 
+	const ignoreList =
+		vscode.workspace.getConfiguration('logicalProperties')?.ignoreList;
+
 	const text = document.getText();
 	const diagnostics = [];
 
@@ -224,8 +233,25 @@ async function getDiagnostics(document) {
 
 	let i = 0;
 	while (lines.length > i) {
+		if (lines[i].startsWith('@media')) {
+			i++;
+			continue;
+		}
+
 		for (let j = 0; j < TERMS.length; j++) {
-			let { search, replacement, isStatic } = TERMS[j];
+			let { search, replacement, isStatic, ignoreNames } = TERMS[j];
+
+			if (
+				ignoreList?.length &&
+				ignoreNames &&
+				ignoreList.some((ignoreListItem) =>
+					ignoreNames.includes(ignoreListItem)
+				)
+			) {
+				continue;
+			} else if (ignoreList?.length && ignoreList.includes(search)) {
+				continue;
+			}
 
 			const searchTermRegExp = new RegExp(search, 'gi');
 			if (!searchTermRegExp.test(lines[i])) {
@@ -234,7 +260,7 @@ async function getDiagnostics(document) {
 
 			let toSearch = isStatic
 				? search
-				: `(?:[^-]|^)(${search}:(\\s*)(.*?)(\\s!important)?)(?:;|$|\\s|"|})`;
+				: `(?:[^-]|^)(${search}:(\\s*)(.*?)(\\s!important)?)(?:;|$|\\s|"|}|\\))`;
 			let withReplacement = isStatic ? replacement : `${replacement}:$2$3$4`;
 			const matchesRegExp = new RegExp(toSearch, 'gi');
 			const replaceRegExp = new RegExp(toSearch, 'gi');
