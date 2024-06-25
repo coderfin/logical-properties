@@ -33,6 +33,12 @@ This extension contributes the following:
   - Indicates if no physical properties were detected in the current file.
     - <img src="images/logical.png" alt="Logical" width="75px" />
   - Click to replace all of the detected physical properties with logical properties in the current file.
+- Ignore List
+  - The `logicalProperties.ignoreList` configuration setting can be used to ignore specific css properties.
+  - Use, for example, `"logicalProperties.ignoreList": ["min-width", "max-width"]` to ignore `min-width` and `max-width`.
+  - <img src="images/settings-item.png" alt="Warning" width="450px" />
+  - <img src="images/settings-add.png" alt="Warning" width="450px" />
+  - <img src="images/settings-manual.png" alt="Warning" width="250px" />
 - Supported Languages
   - Testing has only been done on `.css`, `.html`, and `.jsx` files.
   - In theory the following languages are supported:
@@ -71,12 +77,22 @@ Limited testing of this extension has been done.
 
 ## Release Notes
 
+## 0.1.14
+
+- Fixed the extension to no longer check for or update values within media queries.
+  - Logical properties aren't supported in media queries.
+    - See [#4](https://github.com/coderfin/logical-properties/issues/4)
+  - Note that the check is very simple and checks for parenthesis to determine if a replacement should be made. This could lead to false positives or false negatives.
+- Ignore specific CSS properties
+  - Added a way to ignore specific properties through `ignoreList`
+  - See [#14](https://github.com/coderfin/logical-properties/issues/14)
+
 ## 0.1.12
 
 - Fixed `border-top-right-radius` --> `border-start-end-radius` and Fixed `border-bottom-left-radius` --> `border-end-start-radius`
- - See [#7](https://github.com/coderfin/logical-properties/issues/7)
- - See [#8](https://github.com/coderfin/logical-properties/issues/8)
- - See [#9](https://github.com/coderfin/logical-properties/issues/9)
+- See [#7](https://github.com/coderfin/logical-properties/issues/7)
+- See [#8](https://github.com/coderfin/logical-properties/issues/8)
+- See [#9](https://github.com/coderfin/logical-properties/issues/9)
 
 ## 0.1.11
 
@@ -106,7 +122,7 @@ Fixed activation
 
 Initial release
 
------------------------------------------------------------------------------------------------------------
+---
 
 #### TODO
 

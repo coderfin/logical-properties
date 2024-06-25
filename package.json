@@ -1,6 +1,6 @@
 {
 	"name": "logical-properties",
-	"version": "0.1.13",
+	"version": "0.1.14",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
 		"css",
@@ -73,6 +73,68 @@
 				"title": "Replace all 💪 physical properties with 🧠 logical properties."
 			}
 		],
+		"configuration": {
+			"title": "logicalProperties",
+			"properties": {
+				"logicalProperties.ignoreList": {
+					"default": [],
+					"description": "Ignore the specified css properties.",
+					"items": {
+						"type": "string",
+						"enum": [
+							"border-bottom-color",
+							"border-bottom-left-radius",
+							"border-bottom-right-radius",
+							"border-bottom-style",
+							"border-bottom-width",
+							"border-bottom",
+							"border-left-color",
+							"border-left-style",
+							"border-left-width",
+							"border-left",
+							"border-right-color",
+							"border-right-style",
+							"border-right-width",
+							"border-right",
+							"border-top-color",
+							"border-top-left-radius",
+							"border-top-right-radius",
+							"border-top-style",
+							"border-top-width",
+							"border-top",
+							"bottom",
+							"clear-left",
+							"clear-right",
+							"clear",
+							"float-left",
+							"float-right",
+							"float",
+							"height",
+							"left",
+							"margin-bottom",
+							"margin-left",
+							"margin-right",
+							"margin-top",
+							"max-height",
+							"max-width",
+							"min-height",
+							"min-width",
+							"padding-bottom",
+							"padding-left",
+							"padding-right",
+							"padding-top",
+							"right",
+							"text-align-left",
+							"text-align-right",
+							"text-align",
+							"top",
+							"width"
+						]
+					},
+					"type": "array"
+				}
+			}
+		},
 		"keybindings": [
 			{
 				"command": "logical-properties.replacePhysicalWithLogicalReplaceAll",
