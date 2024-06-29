@@ -216,7 +216,7 @@
 				},
 				"logicalProperties.ignoreList": {
 					"default": [],
-					"description": "Ignore the specified css properties.",
+					"markdownDescription": "Ignore the specified css properties. \n\n Deprecated: Use `logicalProperties.ignoreProperties` instead.",
 					"deprecationMessage": "Deprecated: Use `logicalProperties.ignoreProperties` instead.",
 					"items": {
 						"type": "string",
