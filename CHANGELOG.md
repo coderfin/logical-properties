@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.15
+
+- Added a way to ignore specific files using the file language identifier through the `logicalProperties.ignoreLanguageIds` setting.
+  - See: https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers
+- Renamed `logicalProperties.ignoreList` to `logicalProperties.ignoreProperties`. `logicalProperties.ignoreList` is now depricated and will be removed from a future version.
+
 ## 0.1.14
 
 - Fixed the extension to no longer check for or update values within media queries.
@@ -7,7 +13,7 @@
   - Note that the check is very simple and checks for `@media` to determine if a replacement should be made. This could lead to false positives or false negatives.
   - See [#4](https://github.com/coderfin/logical-properties/issues/4)
 - Ignore specific CSS properties
-  - Added a way to ignore specific properties through the `logicalProperties.ignoreList` setting.
+  - Added a way to ignore specific properties through the `logicalProperties.ignoreList` setting (depricated).
   - See [#14](https://github.com/coderfin/logical-properties/issues/14)
 
 ## 0.1.12

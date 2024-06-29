@@ -20,25 +20,25 @@ const TERMS = [
 		search: '(?:[^-]|^)(float:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'float:$2inline-start$4',
 		isStatic: true,
-		ignoreNames: ['float', 'float-left'],
+		ignorePropertiesNames: ['float', 'float-left'],
 	},
 	{
 		search: '(?:[^-]|^)(float:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'float:$2inline-end$4',
 		isStatic: true,
-		ignoreNames: ['float', 'float-right'],
+		ignorePropertiesNames: ['float', 'float-right'],
 	},
 	{
 		search: '(?:[^-]|^)(clear:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'clear:$2inline-start$4',
 		isStatic: true,
-		ignoreNames: ['clear', 'clear-left'],
+		ignorePropertiesNames: ['clear', 'clear-left'],
 	},
 	{
 		search: '(?:[^-]|^)(clear:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'clear:$2inline-end$4',
 		isStatic: true,
-		ignoreNames: ['clear', 'clear-right'],
+		ignorePropertiesNames: ['clear', 'clear-right'],
 	},
 	// TEXT ALIGN
 	{
@@ -46,14 +46,14 @@ const TERMS = [
 			'(?:[^-]|^)(text-align:(\\s*)(left)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'text-align:$2start$4',
 		isStatic: true,
-		ignoreNames: ['text-align', 'text-align-left'],
+		ignorePropertiesNames: ['text-align', 'text-align-left'],
 	},
 	{
 		search:
 			'(?:[^-]|^)(text-align:(\\s*)(right)(\\s!important)?)(?:;|$|\\s|"|})',
 		replacement: 'text-align:$2end$4',
 		isStatic: true,
-		ignoreNames: ['text-align', 'text-align-right'],
+		ignorePropertiesNames: ['text-align', 'text-align-right'],
 	},
 	// POSITION
 	{
@@ -219,12 +219,18 @@ const TERMS = [
  * @returns {Promise<vscode.Diagnostic[]>}
  */
 async function getDiagnostics(document) {
-	if (document.isClosed) {
+	const configuration = vscode.workspace.getConfiguration('logicalProperties');
+
+	if (
+		document.isClosed ||
+		configuration?.ignoreLanguageIds?.includes(document.languageId)
+	) {
 		return [];
 	}
 
-	const ignoreList =
-		vscode.workspace.getConfiguration('logicalProperties')?.ignoreList;
+	const ignoreProperties = configuration?.ignoreProperties?.length
+		? configuration?.ignoreProperties
+		: configuration?.ignoreList;
 
 	const text = document.getText();
 	const diagnostics = [];
@@ -239,17 +245,20 @@ async function getDiagnostics(document) {
 		}
 
 		for (let j = 0; j < TERMS.length; j++) {
-			let { search, replacement, isStatic, ignoreNames } = TERMS[j];
+			let { search, replacement, isStatic, ignorePropertiesNames } = TERMS[j];
 
 			if (
-				ignoreList?.length &&
-				ignoreNames &&
-				ignoreList.some((ignoreListItem) =>
-					ignoreNames.includes(ignoreListItem)
+				ignoreProperties?.length &&
+				ignorePropertiesNames &&
+				ignoreProperties.some((currentIgnoreProperties) =>
+					ignorePropertiesNames.includes(currentIgnoreProperties)
 				)
 			) {
 				continue;
-			} else if (ignoreList?.length && ignoreList.includes(search)) {
+			} else if (
+				ignoreProperties?.length &&
+				ignoreProperties.includes(search)
+			) {
 				continue;
 			}
 
