@@ -1,6 +1,6 @@
 {
 	"name": "logical-properties",
-	"version": "0.1.15",
+	"version": "0.1.16",
 	"description": "Identify and replace CSS 💪 physical properties with 🧠 logical properties.",
 	"keywords": [
 		"css",
@@ -216,7 +216,7 @@
 				},
 				"logicalProperties.ignoreList": {
 					"default": [],
-					"description": "Ignore the specified css properties.",
+					"markdownDescription": "Ignore the specified css properties. \n\n Deprecated: Use `logicalProperties.ignoreProperties` instead.",
 					"deprecationMessage": "Deprecated: Use `logicalProperties.ignoreProperties` instead.",
 					"items": {
 						"type": "string",
